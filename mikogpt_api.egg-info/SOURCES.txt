@@ -1,0 +1,7 @@
+setup.py
+mikogpt_api/__init__.py
+mikogpt_api/core.py
+mikogpt_api.egg-info/PKG-INFO
+mikogpt_api.egg-info/SOURCES.txt
+mikogpt_api.egg-info/dependency_links.txt
+mikogpt_api.egg-info/top_level.txt

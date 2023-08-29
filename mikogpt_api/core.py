@@ -18,7 +18,7 @@ class MikogptAPI:
         """
         self._key = key
         self._api_version = api_version
-        self._base_url = "http://mikogpt.ru"
+        self._base_url = "http://api.mikogpt.ru"
 
     def _build_request_object(self, data):
         return {"key": self._key, "version": self._api_version, "data": data}
@@ -54,12 +54,12 @@ class MikogptAPIResponse:
         self.error = None
         if self.status != "Success":
             self.error = self.status
-        self.output = None
 
     @staticmethod
     def from_chat_completion(response):
-        response = json.loads(response.text)
-        output = MikogptAPIResponse(response.status)
+        txt = response.text
+        response = json.loads(txt)
+        output = MikogptAPIResponse(response["status"])
         if output.error:
             raise MikogptAPIResponseException(output.error)
         return output
